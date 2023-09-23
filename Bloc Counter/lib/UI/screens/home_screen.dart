@@ -10,39 +10,37 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final blocProvider = BlocProvider.of<CounterCubit>(context);
-    return MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              BlocBuilder<CounterCubit, CounterState>(
-                builder: (context, state) {
-                  return Text(blocProvider.val.toString());
-                },
-              ),
-              SizedBox(
-                height: 50,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  IconButton.filled(
-                    onPressed: blocProvider.increaseCount,
-                    icon: Icon(Icons.plus_one_rounded),
-                  ),
-                  IconButton.filled(
-                    onPressed: blocProvider.decreaseCount,
-                    icon: Icon(Icons.exposure_minus_1_rounded),
-                  ),
-                  IconButton.filled(
-                    onPressed: blocProvider.ZeroCount,
-                    icon: Icon(Icons.exposure_zero_rounded),
-                  )
-                ],
-              )
-            ],
-          ),
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            BlocBuilder<CounterCubit, CounterState>(
+              builder: (context, state) {
+                return Text(blocProvider.val.toString());
+              },
+            ),
+            SizedBox(
+              height: 50,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton.filled(
+                  onPressed: blocProvider.increaseCount,
+                  icon: Icon(Icons.plus_one_rounded),
+                ),
+                IconButton.filled(
+                  onPressed: blocProvider.decreaseCount,
+                  icon: Icon(Icons.exposure_minus_1_rounded),
+                ),
+                IconButton.filled(
+                  onPressed: blocProvider.ZeroCount,
+                  icon: Icon(Icons.exposure_zero_rounded),
+                )
+              ],
+            )
+          ],
         ),
       ),
     );
